@@ -2,34 +2,26 @@
   font-family: Arial;
 }
 
-input[type=text]{
-  font-size: 24px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 500px;
-  padding: 10px;
-}
-
-input[type=checkbox]{
-  margin-right: 10px;
-}
-
-ul{
-  margin: 0;
-  padding: 0;
-  margin-top: 15px;
-}
-
-li{
-  list-style-type: none;
+.todo-input {
+  padding: 5px;
   font-size: 18px;
-  margin: 0;
+}
+
+.todo-list {
+  list-style: none;
   padding: 0;
 }
 
+.todo-list input[type="checkbox"] {
+  margin-right: 7px;
+}
 
-.done{
-  text-decoration: line-through;
-  color: #888;
+.hidden {
+  display: none;
+}
+
+.done {
+  color: lightgray;
   font-style: italic;
+  text-decoration: line-through; 
 }
