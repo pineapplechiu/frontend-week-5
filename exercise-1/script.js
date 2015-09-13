@@ -17,8 +17,9 @@ var makeTodoItem = function(e) {
     li.appendChild(text);
     // add list item to list
     todoList.appendChild(li);
+    // reset text box to empty string
+    this.value = '';
   }
-
 }
 
 // add event listener on input
