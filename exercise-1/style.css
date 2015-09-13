@@ -2,3 +2,16 @@
   font-family: Arial;
 }
 
+.todo-input {
+  padding: 5px;
+  font-size: 18px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list input[type="checkbox"] {
+  margin-right: 7px;
+}
