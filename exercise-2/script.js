@@ -1,6 +1,7 @@
 var todoInput = document.querySelector('.todo-input');
 var todoList = document.querySelector('.todo-list');
 var todoFilters = document.querySelector('.todo-filters');
+var todoData = [];
 
 // checks for enter, then creates HTML list item 
 function makeTodoItem(e) { 
@@ -9,33 +10,9 @@ function makeTodoItem(e) {
   text = this.value.trim();
 
   if (key === 13 && text !== '') {
-    // store id
-    id = 'item-' + Date.now(); // id cannot start with a number
-    // create the list item
-    li = document.createElement('li');
-    // assign li unique id
-    li.id = id;
-    // create clickable label element
-    label = document.createElement('label');
-    // store input text into variable text
-    text = document.createTextNode(text);
-    // create checkbox
-    checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    // create button for item removal
-    span = document.createElement('span');
-    span.dataset.remove = id;
-    span.className = 'fa fa-remove todo-remove';
-    // put text and checkbox inside label
-    label.appendChild(checkbox);
-    label.appendChild(text);
-    // put label inside list item
-    li.appendChild(label);
-    li.appendChild(span);
-    // add list item to list
-    todoList.appendChild(li);
-    // reset text box to empty string
-    this.value = '';
+    createTodoItem(todoList, text)
+
+    this.value = ''; // reset text box to empty string
   }
 }
 
@@ -81,9 +58,53 @@ function showAllTodoItems(items) {
   }
 }
 
+function createTodoItem(todoList, todoText, todoStatus) {
+  var li, checkbox, text, label, button, id;
+
+  // store id
+  id = 'item-' + Date.now(); // id cannot start with a number
+  // create the list item
+  li = document.createElement('li');
+  // assign li unique id
+  li.id = id;
+  // create clickable label element
+  label = document.createElement('label');
+  // store input text into variable text
+  text = document.createTextNode(todoText);
+  // create checkbox
+  checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  // create button for item removal
+  button = document.createElement('button');
+  button.dataset.remove = id;
+  button.textContent = 'X';
+  // put text and checkbox inside label
+  label.appendChild(checkbox);
+  label.appendChild(text);
+  // put label inside list item
+  li.appendChild(label);
+  li.appendChild(button);
+  // add list item to list
+  todoList.appendChild(li);
+
+  todoData.push({
+    id: id,
+    text: todoText,
+    status: todoStatus || 'not-done'
+  });
+}
+
+function setupTodoList() {
+  if (window.localStorage) {
+    todoData = JSON.parse(localStorage.getItem('todoListItems'));
+  }
+}
+
 // add event listener on input
 todoInput.addEventListener('keyup', makeTodoItem);
 // add event listener to todo list
 todoList.addEventListener('click', handleTodoItem);
 // add event listener for all todo filters
 todoFilters.addEventListener('click', filterTodoItems);
+
+setupTodoList();
