@@ -1,23 +1,25 @@
 * {
   box-sizing: border-box;
+  background-color: #BDD4DE;
 }
 
 body {
-  font-family: 'Domine', Arial, serif;
+  font-family: 'Roboto Slab', Arial, serif;
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', Arial, serif;
+  font-family: 'Megrim', Arial, serif;
 }
 
 input, label, button {
-  font-family: 'Domine', Arial, serif;
+  font-family: 'Roboto Slab', Arial, serif;
 }
 
 .todo-container {
   max-width: 520px;
   padding: 20px;
   margin: 0 auto;
+  color: #2B3A42;
 }
 
 .todo-container h1 {
@@ -26,15 +28,15 @@ input, label, button {
 }
 
 .todo-input {
-  padding: 7.5px;
+  padding: 7px;
   font-size: 18px;
   width: 100%;
   outline: none;
-  border: 1px solid lightgray;
+  border: 1px solid #EFEFEF;
 }
 
 .todo-input:focus {
-  border-color: tomato;
+  border-color: #FF530D;
 }
 
 .todo-list {
@@ -49,16 +51,16 @@ input, label, button {
 
 .todo-list li {
   padding: 10px 0;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #EFEFEF;
   transition: border-bottom-color 0.2s;
 }
 
 .todo-list li:hover {
-  border-bottom-color: lightcoral;
+  border-bottom-color: #FF530D;
 }
 
 .todo-remove {
-  color: gray;
+  color: #FF530D;
   margin-right: 5px;
   padding: 1px;
   float: right;
@@ -77,20 +79,27 @@ input, label, button {
 
 .todo-filters button {
   padding: 5px 10px;
-  border: 1px solid lightgray;
+  border: 1px solid #EFEFEF;
   border-radius: 5px;
-  background: white;
+  background: #3F5765;
+  color: #EFEFEF;
   font-size: 16px;
   transition: border-color 0.2s;
   outline: 0;
 }
 
+.todo-filters .showAllButton {
+  border: 1px solid #EFEFEF;
+  background-color: #3F5765;
+  color: #BDD4DE;
+}
+
 .todo-filters button:hover {
-  border-color: gray;
+  border-color: #3F5765;
 }
 
 .todo-filters button:focus {
-  border-color: tomato;
+  border-color: #FF530D;
 }
 
 .hidden {
@@ -98,7 +107,7 @@ input, label, button {
 }
 
 .done {
-  color: lightgray;
+  color: #EFEFEF;
   font-style: italic;
   text-decoration: line-through; 
 }
