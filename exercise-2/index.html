@@ -3,16 +3,21 @@
 <head>
   <title>My TODO List!</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Domine:400">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-  <h1>TODO</h1>
-  
-  <input type="text" class="todo-input">
-  <ul class="todo-list"></ul>
-  <div class="todo-filters">
-    <button data-filter="done">Done</button>
-    <button data-filter="not-done">Not Done</button>
-    <button data-filter="show-all">Show All</button>
+
+  <div class="todo-container">
+    <h1>To-Do List</h1>
+    
+    <input type="text" class="todo-input" placeholder="Add to-do here">
+    <ul class="todo-list"></ul>
+    <div class="todo-filters">
+      <button data-filter="done">Done</button>
+      <button data-filter="not-done">Not Done</button>
+      <button data-filter="show-all">Show All</button>
+    </div>
   </div>
 
   <script src="script.js"></script>

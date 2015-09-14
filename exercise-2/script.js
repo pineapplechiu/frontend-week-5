@@ -5,7 +5,7 @@ var todoFilters = document.querySelector('.todo-filters');
 // checks for enter, then creates HTML list item 
 function makeTodoItem(e) { 
   var key = e.which || e.keyCode;
-  var li, checkbox, text, label, button, id;
+  var li, checkbox, text, label, span, id;
   text = this.value.trim();
 
   if (key === 13 && text !== '') {
@@ -23,15 +23,15 @@ function makeTodoItem(e) {
     checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     // create button for item removal
-    button = document.createElement('button');
-    button.dataset.remove = id;
-    button.textContent = 'X';
+    span = document.createElement('span');
+    span.dataset.remove = id;
+    span.className = 'fa fa-remove todo-remove';
     // put text and checkbox inside label
     label.appendChild(checkbox);
     label.appendChild(text);
     // put label inside list item
     li.appendChild(label);
-    li.appendChild(button);
+    li.appendChild(span);
     // add list item to list
     todoList.appendChild(li);
     // reset text box to empty string
@@ -45,7 +45,7 @@ function handleTodoItem(e) {
   if (e.target.nodeName === 'INPUT') { // handle marking and unmarking done
     li = e.target.parentNode.parentNode; // parent of the input is the label, parent of label is the list item 
     li.classList.toggle('done'); // if it is not done, add class done. if done, remove done.
-  } else if (e.target.nodeName === 'BUTTON') { // handle deleting todo item
+  } else if (e.target.nodeName === 'SPAN') { // handle deleting todo item
     idToRemove = e.target.dataset.remove; 
     document.querySelector('#' + idToRemove).remove(); // look for list item id, then remove
   }

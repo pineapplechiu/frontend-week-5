@@ -1,19 +1,96 @@
 * {
-  font-family: Arial;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Domine', Arial, serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', Arial, serif;
+}
+
+input, label, button {
+  font-family: 'Domine', Arial, serif;
+}
+
+.todo-container {
+  max-width: 520px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.todo-container h1 {
+  margin-top: 0;
+  text-align: center;
 }
 
 .todo-input {
-  padding: 5px;
+  padding: 7.5px;
   font-size: 18px;
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgray;
+}
+
+.todo-input:focus {
+  border-color: tomato;
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
+  min-height: 25vh;
 }
 
 .todo-list input[type="checkbox"] {
   margin-right: 7px;
+}
+
+.todo-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+  transition: border-bottom-color 0.2s;
+}
+
+.todo-list li:hover {
+  border-bottom-color: lightcoral;
+}
+
+.todo-remove {
+  color: gray;
+  margin-right: 5px;
+  padding: 1px;
+  float: right;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.todo-list li:hover .todo-remove {
+  opacity: 0.2;
+}
+
+.todo-list li .todo-remove:hover {
+  opacity: 1;
+}
+
+.todo-filters button {
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background: white;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  outline: 0;
+}
+
+.todo-filters button:hover {
+  border-color: gray;
+}
+
+.todo-filters button:focus {
+  border-color: tomato;
 }
 
 .hidden {
