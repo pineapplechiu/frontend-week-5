@@ -88,7 +88,7 @@ input, label, button {
   outline: 0;
 }
 
-.todo-filters .showAllButton {
+.todo-filters .show-all-button {
   border: 1px solid #EFEFEF;
   background-color: #3F5765;
   color: #BDD4DE;
