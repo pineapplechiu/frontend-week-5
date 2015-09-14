@@ -2,10 +2,13 @@ var todoInput = document.querySelector('.todo-input');
 var todoList = document.querySelector('.todo-list');
 var todoFilters = document.querySelector('.todo-filters');
 
-function makeTodoItem(e) {
+// checks for enter, then creates HTML list item 
+function makeTodoItem(e) { 
   var key = e.which || e.keyCode;
   var li, checkbox, text, label, button, id;
-  if (key === 13) {
+  text = this.value.trim();
+
+  if (key === 13 && text !== '') {
     // store id
     id = 'item-' + Date.now(); // id cannot start with a number
     // create the list item
@@ -15,7 +18,7 @@ function makeTodoItem(e) {
     // create clickable label element
     label = document.createElement('label');
     // store input text into variable text
-    text = document.createTextNode(this.value);
+    text = document.createTextNode(text);
     // create checkbox
     checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -40,11 +43,11 @@ function handleTodoItem(e) {
   var li, idToRemove;
 
   if (e.target.nodeName === 'INPUT') { // handle marking and unmarking done
-    li = e.target.parentNode.parentNode;
-    li.classList.toggle('done');
+    li = e.target.parentNode.parentNode; // parent of the input is the label, parent of label is the list item 
+    li.classList.toggle('done'); // if it is not done, add class done. if done, remove done.
   } else if (e.target.nodeName === 'BUTTON') { // handle deleting todo item
     idToRemove = e.target.dataset.remove; 
-    document.querySelector('#' + idToRemove).remove();
+    document.querySelector('#' + idToRemove).remove(); // look for list item id, then remove
   }
 }
 
@@ -67,8 +70,8 @@ function filterTodoItems(e) {
 }
 
 function hideTodoItems(items) {
-  for (var i = 0; i < filteredItems.length; i++) {
-    filteredItems[i].classList.add('hidden');
+  for (var i = 0; i < items.length; i++) {
+    items[i].classList.add('hidden');
   }
 }
 
@@ -82,5 +85,5 @@ function showAllTodoItems(items) {
 todoInput.addEventListener('keyup', makeTodoItem);
 // add event listener to todo list
 todoList.addEventListener('click', handleTodoItem);
-// add event listener todo filters
+// add event listener for all todo filters
 todoFilters.addEventListener('click', filterTodoItems);
